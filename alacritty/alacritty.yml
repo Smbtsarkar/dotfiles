@@ -1,0 +1,101 @@
+---
+#----------------------------#
+# Configuration of alacritty #
+#----------------------------#
+
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 8
+    y: 8
+
+  decorations: buttonless
+
+  opacity: 0.9
+
+  startup_mode: Maximized
+
+  dynamic_title: true
+
+  option_as_alt: OnlyLeft
+
+scrolling:
+  history: 10000
+
+  multiplier: 5
+
+font:
+  normal:
+    family: MesloLGM Nerd Font
+    style: Regular
+
+  bold:
+    family: MesloLGM Nerd Font
+    style: Bold
+
+  italic:
+    family: MesloLGM Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: MesloLGM Nerd Font
+    style: Bold Italic
+
+  size: 16
+
+  built-in-box-drawing: true
+
+draw_bold_text_with_bright_colors: true
+
+# Theme: Purify
+colors:
+  primary:
+    background: "0x1d2021"
+    foreground: "0xd4be98"
+  normal:
+    black: "0x32302f"
+    red: "0xea6962"
+    green: "0xa9b665"
+    yellow: "0xd8a657"
+    blue: "0x7daea3"
+    magenta: "0xd3869b"
+    cyan: "0x89b482"
+    white: "0xd4be98"
+  bright:
+    black: "0x32302f"
+    red: "0xea6962"
+    green: "0xa9b665"
+    yellow: "0xd8a657"
+    blue: "0x7daea3"
+    magenta: "0xd3869b"
+    cyan: "0x89b482"
+    white: "0xd4be98"
+
+# Autostart Tmux on launch
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux -f $TMUX_CONFIG"
+
+# Keyboard shortcuts
+key_bindings:
+  - {
+      key: Comma,
+      mods: Command,
+      command:
+        {
+          program: "zsh",
+          args: ["-c", "open ~/.config/alacritty/alacritty.yml"],
+        },
+    }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: Space, mods: Alt, chars: " " }
+  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Left, mods: Alt, chars: "\x1bb" } # one word left
+  - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
