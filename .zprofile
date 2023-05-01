@@ -5,7 +5,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export ZDOTDIR="$HOME/.config/zsh"
 
 # EXPORT Editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # Export TMUX Dir
 export TMUX_CONFIG="$HOME/.config/tmux/tmux.conf"
