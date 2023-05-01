@@ -5,7 +5,7 @@ if not status then
 end
 
 -- theme
-local lualine_theme = require("lualine.themes.gruvbox-material")
+local lualine_theme = require("lualine.themes.auto")
 
 lualine.setup({
     options = {

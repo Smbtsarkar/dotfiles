@@ -31,7 +31,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
   use 'nvim-lua/plenary.nvim' -- list of functions that is used by other plugins
-  use 'ellisonleao/gruvbox.nvim' -- colorscheme
+  -- use 'ellisonleao/gruvbox.nvim' -- colorscheme
+  use 'folke/tokyonight.nvim' -- theme
   use 'christoomey/vim-tmux-navigator' -- helper to work with tmux
   use 'szw/vim-maximizer' -- allows toggling of pane to maximize
   use 'tpope/vim-surround' -- allows us to manipulate words and lines

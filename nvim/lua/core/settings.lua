@@ -23,7 +23,7 @@ opt.cursorline = true
 
 -- Set Color Settings
 opt.termguicolors = true
-opt.background = "dark"
+-- opt.background = "dark"
 opt.signcolumn = "yes"
 
 -- Fix backspace issue
