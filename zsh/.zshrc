@@ -25,15 +25,24 @@ HISTSIZE=10000
 # Installing Plugins #
 #--------------------#
 
-source "$ZDOTDIR/functions.sh"
+source "$ZDOTDIR/functions"
 
 install_plugin "zsh-users/zsh-autosuggestions"
 install_plugin "zsh-users/zsh-syntax-highlighting"
 install_plugin "woefe/git-prompt.zsh"
 
+#----------------------#
+# Setting Vi Key modes #
+#----------------------#
+bindkey -v
+zle -N zle-keymap-select
+zle -N zle-line-init
+
 #--------------------------#
 # Loading additional files #
 #--------------------------#
 
-load_file "$ZDOTDIR/prompt.sh"
-load_file "$ZDOTDIR/aliases.sh"
+load_file "$ZDOTDIR/prompt"
+load_file "$ZDOTDIR/aliases"
+load_file "$ZDOTDIR/keymaps"
+

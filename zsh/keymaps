@@ -1,0 +1,8 @@
+# ---------------------------- #
+# Defining custom key bindings #
+# ---------------------------- #
+
+# Reverse search #
+bindkey '^r' history-incremental-pattern-search-backward
+
+
