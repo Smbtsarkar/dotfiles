@@ -1,46 +1,83 @@
--- Configure the leader key
+-- +++++++++++++++++++++ --
+-- Key bindings for NVIM --
+-- +++++++++++++++++++++ --
+
+-- Variable
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Setting up the leader key
 vim.g.mapleader = " "
 
-local keymap = vim.keymap
 
--- ---------------------------------- --
--- General Keymap                     --
--- Options: <mode>, <keys>, <action>  --
--- ---------------------------------- --
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --
+-- Syntax                            --
+-- Options: <mode>, <keys>, <action> --
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --
+
+-- ~~~~~~~~~~~~~~~ --
+-- Generic Section --
+-- ~~~~~~~~~~~~~~~ --
 
 -- Remove highlight after searching
-keymap.set("n","<leader>nh",":nohl<CR>")
+keymap("n","<leader>h",":nohl<CR>",opts)
 
--- Delete characters with x but don't copy to clipboard
-keymap.set("n","x",'"_x')
+-- Use x as delete only
+keymap("n","x",'"_x',opts)
 
--- Increment and decrement numbers 
-keymap.set("n","<leader>+","<C-a>")
-keymap.set("n","<leader>-","<C-x>")
+-- Paste without copying 
+-- Yank text with ye : yank a word
+keymap("v","p",'"_dP',opts)
 
--- Split windows
-keymap.set("n","<leader>sv","<C-w>v") -- split window vertically
-keymap.set("n","<leader>sh","<C-w>s") -- split window horizontally
-keymap.set("n","<leader>se","<C-w>=") -- split window equal width
-keymap.set("n","<leader>sx",":close<CR>") -- close current split window
+-- keep indenting
+keymap("v","<","<gv",opts)
+keymap("v",">",">gv",opts)
 
--- Tabs 
-keymap.set("n","<leader>to",":tabnew<CR>") -- open a new tab
-keymap.set("n","<leader>tx",":tabclose<CR>") -- close current tab
-keymap.set("n","<leader>tn",":tabn<CR>") -- go to next tab
-keymap.set("n","<leader>tp",":tabp<CR>") -- go to prev tab
+-- Move text up and down
+keymap("v","<A-k>",":move .-2<CR>",opts)
+keymap("v","<A-j>",":move .+1<CR>",opts)
+keymap("x","K",":move '<-2<CR>gv-gv",opts)
+keymap("x","J",":move '>+1<CR>gv-gv",opts)
 
--- Plugin Section
--- Vim Maximizer
-keymap.set("n","<leader>sm",":MaximizerToggle<CR>")
+-- ~~~~~~~~~~~~~~~~~~ -- 
+-- Splits and Windows --
+-- ~~~~~~~~~~~~~~~~~~ --
+-- Vsplit new window
+keymap("n","<leader><S-h>",":new<CR>",opts)
+keymap("n","<leader><S-v>",":vnew<CR>",opts)
 
--- NvimTree
-keymap.set("n","<leader>e",":NvimTreeToggle<CR>")
+-- Navigation
+keymap("n","<C-h>","<C-w>h",opts)
+keymap("n","<C-j>","<C-w>j",opts)
+keymap("n","<C-k>","<C-w>k",opts)
+keymap("n","<C-l>","<C-w>l",opts)
 
--- Telescope
-keymap.set("n","<leader>ff","<cmd>Telescope find_files<CR>") -- use telescope to find files in the project
-keymap.set("n","<leader>fs","<cmd>Telescope live_grep<CR>") -- find text in our project
-keymap.set("n","<leader>fc","<cmd>Telescope grep_string<CR>") -- find current string the cursor is on in our project
-keymap.set("n","<leader>fb","<cmd>Telescope buffers<CR>") -- show active buffers
-keymap.set("n","<leader>fh","<cmd>Telescope help_tags<CR>") -- show help tags
+-- Resize with Arrows
+keymap("n","<S-Up>",":resize +2<CR>",opts)
+keymap("n","<S-Down>",":resize -2<CR>",opts)
+keymap("n","<S-Left>",":vertical resize +2<CR>",opts)
+keymap("n","<S-Right>",":vertical resize -2<CR>",opts)
 
+-- Navigate buffers
+keymap("n","<S-h>",":bprevious<CR>",opts)
+keymap("n","<S-l>",":bnext<CR>",opts)
+
+
+-- ~~~~~~~~~~~~~~ --
+-- Plugin Section --
+-- ~~~~~~~~~~~~~~ --
+
+-- Open NvimTree
+keymap("n","<leader>e",":NvimTreeToggle<CR>",opts)
+
+-- Search files with Telescope
+keymap("n","<leader>ff","<cmd>Telescope find_files<CR>",opts)
+
+-- Search for strings in the current project
+keymap("n","<leader>fs","<cmd>Telescope live_grep<CR>",opts)
+
+-- Show active buffers in Telescope
+keymap("n","<leader>fb","<cmd>Telescope buffers<CR>",opts)
+
+-- Show help tags
+keymap("n","<leader>fh","<cmd>Telescope help_tags<CR>",opts)

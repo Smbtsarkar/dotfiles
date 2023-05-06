@@ -1,9 +1,11 @@
--- Setup colorscheme
-vim.cmd("syntax on")
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --
+-- Initializing the theme                           --
+-- Ensuring the theme is installed and then sets it --
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --
 
-local status, _ = pcall(vim.cmd, "colorscheme tokyonight-night")
+
+local status, tn = pcall(vim.cmd, "colorscheme tokyonight-night")
 if not status then
     print("Colorscheme not found!")
     return
 end
-
