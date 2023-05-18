@@ -20,7 +20,7 @@ vim.g.mapleader = " "
 -- ~~~~~~~~~~~~~~~ --
 
 -- Remove highlight after searching
-keymap("n","<leader>h",":nohl<CR>",opts)
+keymap("n","<Esc><Esc>",":nohl<CR>",opts)
 
 -- Use x as delete only
 keymap("n","x",'"_x',opts)
@@ -34,10 +34,15 @@ keymap("v","<","<gv",opts)
 keymap("v",">",">gv",opts)
 
 -- Move text up and down
-keymap("v","<A-k>",":move .-2<CR>",opts)
-keymap("v","<A-j>",":move .+1<CR>",opts)
 keymap("x","K",":move '<-2<CR>gv-gv",opts)
 keymap("x","J",":move '>+1<CR>gv-gv",opts)
+
+-- Remap Arrow keys to Ctrl + h,j,k,l
+keymap("i","<C-h>","<Left>",opts)
+keymap("i","<C-l>","<Right>",opts)
+keymap("i","<C-j>","<Down>",opts)
+keymap("i","<C-k>","<Up>",opts)
+
 
 -- ~~~~~~~~~~~~~~~~~~ -- 
 -- Splits and Windows --
@@ -59,9 +64,9 @@ keymap("n","<S-Left>",":vertical resize +2<CR>",opts)
 keymap("n","<S-Right>",":vertical resize -2<CR>",opts)
 
 -- Navigate buffers
-keymap("n","<S-h>",":bprevious<CR>",opts)
-keymap("n","<S-l>",":bnext<CR>",opts)
-
+keymap("n","<S-n>",":bnext<CR>",opts)
+-- close buffer 
+keymap("n","<leader>x",":close<CR>", opts)
 
 -- ~~~~~~~~~~~~~~ --
 -- Plugin Section --

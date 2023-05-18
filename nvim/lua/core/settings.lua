@@ -10,8 +10,8 @@ opt.relativenumber = true
 opt.number = true
 
 -- Setting tabs and indentations
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.breakindent = true
@@ -22,11 +22,11 @@ opt.autowrite = true
 
 -- Setting search parameters
 opt.ignorecase = true                                       -- ignore case in search patterns
-opt.smartcase = true 
+opt.smartcase = true
 
 -- Enabling cursor line for easier view
 opt.cursorline = true
-opt.cursorlineopt = "number"
+opt.cursorlineopt = "both"
 
 -- Enabling good colors
 opt.termguicolors = true
@@ -66,7 +66,7 @@ opt.linebreak = true                                --
 opt.mouse = "a"                                     -- Allow the use of mouse
 
 -- CMD Height
-opt.cmdheight = 2                                   -- More space to view messages in the status bar
+opt.cmdheight = 1                                   -- More space to view messages in the status bar
 
 -- backup
 opt.backup = false                                  -- does not create a bkp file
@@ -90,7 +90,7 @@ opt.hlsearch = true
 opt.showmode = false
 
 -- Always show tabs
-opt.showtabline = 2
+opt.showtabline = 1
 
 -- Disable swapfile
 opt.swapfile = false
